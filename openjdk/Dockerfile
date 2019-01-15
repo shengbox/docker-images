@@ -12,6 +12,8 @@ https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community" > /etc/apk/repositori
 RUN apk --update add bash ttf-dejavu && \
       rm -rf /var/cache/apk/*
 
+RUN mkdir -p /usr/share/fonts/chinese
+
 # Agent bond including Jolokia and jmx_exporter
 ADD agent-bond-opts /opt/run-java-options
 RUN mkdir -p /opt/agent-bond
