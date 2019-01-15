@@ -6,6 +6,11 @@ RUN mkdir -p /deployments
 ENV JAVA_APP_DIR=/deployments \
 JAVA_MAJOR_VERSION=8
 
+RUN echo -e "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main\n\
+https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community" > /etc/apk/repositories
+
+RUN apk --update add ttf-dejavu && \
+      rm -rf /var/cache/apk/*
 
 # Agent bond including Jolokia and jmx_exporter
 ADD agent-bond-opts /opt/run-java-options
